@@ -1,0 +1,49 @@
+1- how pipes work ?
+2- forks
+3- commands
+4- 
+
+
+
+What is the differnece between a program and a process ?
+	A process is an instance of an executing program. (or simply a program in execution),
+a process is an abstract entity, defined by the kernel, to which system resources are allocated in order to execute a program.
+	A program is a executable file which contains a set of instructions. 
+
+
+
+what fork does ?
+	System call that creates a new process, that we call child process, if an error occures it returns -1,
+but if it works, it would return 0, and the main process will have a number different than zero.
+to know how many childs u made, u calculate 2(n) with n is number of forks called.
+Also u should know that when we declare a variable, it would be placed twice in the memory, each process has his own variables.
+
+what is wait function ?
+	The wait function makes a process wait until one of its childs finishes his instructions.
+The main process continues the execution once the child process terminates with an EXIT() or a RETURN or some signal.
+If theres nothing to wait for it return -1.
+
+What is Process ID ?
+	The Linux kernel limits process IDs to being less than or equal to 32,767.
+Each time the limit of 32,767 is reached, the kernel resets its process ID counter so that
+process IDs are assigned starting from low integer values (the reset value is 300 rather than 1), because low IDs
+are used by system processes and daemons.
+The parent of each process has its own parent, and so on, going all the way back to process 1,
+init, the ancestor of all processes.
+If a child process becomes orphaned because its “birth” parent terminates, then the child is adopted by the init process,
+and subsequent calls to getppid() in the child return 1.
+
+What pipe does ?
+	System call 
+
+
+
+pipex = fork, pipe, waitpid
+child_one = dup, (STDIN, STDOUT), execve
+child_two = dup, (STDIN, STDOUT), execve
+
+
+protect files
+protect pipe
+protect args
+blan lpath
